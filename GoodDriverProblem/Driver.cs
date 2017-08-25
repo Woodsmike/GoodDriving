@@ -8,15 +8,32 @@ namespace GoodDriverProblem
 {
     class Driver
     {
-        public string driverName;
+        private string driverName;
         private double driverMiles;
         private double driverTime;
         private int driverSpeed;
 
-        public string DriverName { get; set; }
-        public double DriverMiles { get; set; }
-        public double DriverTime { get; set; }
-        public int DriverSpeed { get; set; }
+        public string DriverName
+        {
+            get { return this.driverName; }
+            set { this.driverName = value; }
+        }
+        
+        public double DriverMiles
+        {
+            get { return this.driverMiles; }
+            set { this.driverMiles += value; }
+        }
+        public double DriverTime
+        {
+            get { return this.driverTime; }
+            set { this.driverTime += value; }
+        }
+        public int DriverSpeed
+        {
+            get { return this.driverSpeed; }
+            set { this.driverSpeed = value; }
+        }
 
         public Driver()
         {
