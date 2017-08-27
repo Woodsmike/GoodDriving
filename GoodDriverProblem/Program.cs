@@ -14,22 +14,26 @@ namespace GoodDriverProblem
         static void Main(string[] args)
         {
             
-
+            //dictionary to store driver instance by using driver name as key
             Dictionary<string, Driver> DrivingRecord = new Dictionary<string, Driver>();
 
             using (StreamReader reader = new StreamReader("DrivingRecord.txt"))
             {
 
                 string line;
-                while ((line = reader.ReadLine()) != null)
+                while ((line = reader.ReadLine()) != null) //make sure line has numbers before entering the while loop
                 {
                     double driverMiles = 0;
                     int driverTime = 0;
                     int driverSpeed = 0;
+
+                    //using line split in order to assingn words to an array
                     string[] word = line.Split();
-                  
+
+                    //The second index is the driver's name
                     string driverName = word[1];
 
+                    //This is instantiating an object in the dictionary
                     if (word[0].Contains("Driver"))
                     {
                        
@@ -39,7 +43,7 @@ namespace GoodDriverProblem
                        
                     }
 
-
+                    //if the line begins with 'Trip' then we add values to our dictionary
                     else if (word[0] == "Trip")
                     {
                        
@@ -65,11 +69,12 @@ namespace GoodDriverProblem
                     }
 
                 }
-               
+                // use linq in order to sort the values in the dictionary by 'DriverMiles
                 var drivingRecordSorted = from entry in DrivingRecord
                           orderby entry.Value.DriverMiles descending
                           select entry;
 
+                //Print out the sorted values
                 foreach (KeyValuePair<string, Driver> driver in drivingRecordSorted)
                 {
                     
