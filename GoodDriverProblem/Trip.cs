@@ -24,13 +24,7 @@ namespace GoodDriverProblem
             return roundedHoursDriving;
         }
 
-        //public static double GetDriveTime(DateTime StartTime, DateTime EndTime)
-        //{
-            
-        //    TimeSpan driveTime = (EndTime - StartTime);
-        //    double driverTime = (double)driveTime.TotalHours;
-        //    return driverTime;
-        //}
+      
         public static int GetMPH(double MilesDriven, double driverTime)
         {
             int mph = Convert.ToInt32(Math.Round(MilesDriven / driverTime, 2));
